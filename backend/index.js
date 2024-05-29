@@ -16,8 +16,15 @@ app.use(express.json());
 
 dotenv.config();
 conectarDB();
-app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:5173', // Origen permitido (el frontend)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-localization'], // Encabezados permitidos
+  credentials: false, // Permitir el envío de credenciales
+};
  
+app.use(cors(corsOptions));
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/minado",minadorouter)
 app.use("/api/data",datarouter)
