@@ -9,7 +9,7 @@ const certificadoSchema = mongoose.Schema({
  },
  usuario:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"usuario"
+    ref:"Usuario"
  },
  descripcion:{
     type:String,

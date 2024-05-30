@@ -15,6 +15,7 @@ class Blockchain{
         }
     }
     addBlock(bloque){
+        console.log(bloque)
         let self =this;
         return new Promise (async(resolve,reject)=>{ 
             bloque.height=self.chain.length;
@@ -53,12 +54,13 @@ class Blockchain{
         })
 
     }
-    print(){
-        let self=this;
-        for (let bloque of self.chain){
-            console.log(bloque.toString());
 
+    print() {
+        let self = this;
+        for (let bloque of self.chain) {
+            console.log(JSON.stringify(bloque.toString()));
         }
     }
+    
 }
 export default Blockchain
